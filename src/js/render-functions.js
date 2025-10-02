@@ -4,6 +4,7 @@ import "simplelightbox/dist/simple-lightbox.min.css";
 
 const galleryContainer = document.querySelector(".gallery");
 const loaderEl = document.querySelector(".loader");
+
 const lightbox = new SimpleLightbox(".gallery a", {
   captionsData: "alt",
   captionDelay: 250,
@@ -44,9 +45,13 @@ export function clearGallery() {
 export function showLoader() {
   if (!loaderEl) return;
   loaderEl.classList.add("is-active");
+  loaderEl.style.display = "block";
+  loaderEl.setAttribute("aria-hidden", "false");
 }
 
 export function hideLoader() {
   if (!loaderEl) return;
   loaderEl.classList.remove("is-active");
+  loaderEl.style.display = "none";
+  loaderEl.setAttribute("aria-hidden", "true");
 }
